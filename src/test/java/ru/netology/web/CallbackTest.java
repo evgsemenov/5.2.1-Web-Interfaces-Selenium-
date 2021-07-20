@@ -1,7 +1,6 @@
 package ru.netology.web;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.BeforeClass;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -13,15 +12,15 @@ import org.openqa.selenium.chrome.ChromeOptions;
 class CallbackTest {
     private WebDriver driver;
 
-    @BeforeClass
+    @BeforeAll
     public static void setupClass() {
         WebDriverManager.chromedriver().setup();
     }
 
-    @BeforeAll
-    static void setUpAll() {
-        System.setProperty("webdriver.chrome.driver", "./driver/win/chromedriver.exe");
-    }
+//    @BeforeAll
+//    static void setUpAll() {
+//        System.setProperty("webdriver.chrome.driver", "./driver/win/chromedriver.exe");
+//    }
 
     @BeforeEach
     void setUp() {
