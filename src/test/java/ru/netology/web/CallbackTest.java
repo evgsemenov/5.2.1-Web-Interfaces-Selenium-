@@ -43,7 +43,7 @@ class CallbackTest {
         driver.findElement(By.className("checkbox__box")).click();
         driver.findElement(By.className("button")).click();
         String actualText = driver.findElement(By.className("Success_successBlock__2L3Cw")).getText();
-        String expectedText = "Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время.";
+        String expectedText = "Ваш заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время.";
         assertEquals(expectedText.trim(), actualText.trim());
     }
 
@@ -55,7 +55,7 @@ class CallbackTest {
         driver.findElement(By.className("checkbox__box")).click();
         driver.findElement(By.className("button")).click();
         String actualText = driver.findElement(By.className("input_invalid")).findElement(By.className("input__sub")).getText();
-        String expectedText = "Имя и Фамилия указаные неверно. Допустимы только русские буквы, пробелы и дефисы.";
+        String expectedText = "Им и Фамилия указаные неверно. Допустимы только русские буквы, пробелы и дефисы.";
         assertEquals(expectedText.trim(), actualText.trim());
     }
 
@@ -67,7 +67,7 @@ class CallbackTest {
         driver.findElement(By.className("checkbox__box")).click();
         driver.findElement(By.className("button")).click();
         String actualText = driver.findElement(By.className("input_invalid")).findElement(By.className("input__sub")).getText();
-        String expectedText = "Имя и Фамилия указаные неверно. Допустимы только русские буквы, пробелы и дефисы.";
+        String expectedText = "Им и Фамилия указаные неверно. Допустимы только русские буквы, пробелы и дефисы.";
         assertEquals(expectedText.trim(), actualText.trim());
     }
 
@@ -79,7 +79,7 @@ class CallbackTest {
         driver.findElement(By.className("checkbox__box")).click();
         driver.findElement(By.className("button")).click();
         String actualText = driver.findElement(By.className("input_invalid")).findElement(By.className("input__sub")).getText();
-        String expectedText = "Поле обязательно для заполнения";
+        String expectedText = "Пол обязательно для заполнения";
         assertEquals(expectedText.trim(), actualText.trim());
     }
 
@@ -91,7 +91,7 @@ class CallbackTest {
         driver.findElement(By.className("checkbox__box")).click();
         driver.findElement(By.className("button")).click();
         String actualText = driver.findElement(By.className("input_invalid")).findElement(By.className("input__sub")).getText();
-        String expectedText = "Телефон указан неверно. Должно быть 11 цифр, например, +79012345678.";
+        String expectedText = "Телефо указан неверно. Должно быть 11 цифр, например, +79012345678.";
         assertEquals(expectedText.trim(), actualText.trim());
     }
 
@@ -103,7 +103,7 @@ class CallbackTest {
         driver.findElement(By.className("checkbox__box")).click();
         driver.findElement(By.className("button")).click();
         String actualText = driver.findElement(By.className("input_invalid")).findElement(By.className("input__sub")).getText();
-        String expectedText = "Телефон указан неверно. Должно быть 11 цифр, например, +79012345678.";
+        String expectedText = "Телефо указан неверно. Должно быть 11 цифр, например, +79012345678.";
         assertEquals(expectedText.trim(), actualText.trim());
     }
 
@@ -115,7 +115,7 @@ class CallbackTest {
         driver.findElement(By.className("checkbox__box")).click();
         driver.findElement(By.className("button")).click();
         String actualText = driver.findElement(By.className("input_invalid")).findElement(By.className("input__sub")).getText();
-        String expectedText = "Телефон указан неверно. Должно быть 11 цифр, например, +79012345678.";
+        String expectedText = "Телефо указан неверно. Должно быть 11 цифр, например, +79012345678.";
         assertEquals(expectedText.trim(), actualText.trim());
     }
 
@@ -127,7 +127,7 @@ class CallbackTest {
         driver.findElement(By.className("checkbox__box")).click();
         driver.findElement(By.className("button")).click();
         String actualText = driver.findElement(By.className("input_invalid")).findElement(By.className("input__sub")).getText();
-        String expectedText = "Поле обязательно для заполнения";
+        String expectedText = "Пол обязательно для заполнения";
         assertEquals(expectedText.trim(), actualText.trim());
     }
 
@@ -138,7 +138,7 @@ class CallbackTest {
         driver.findElement(By.cssSelector("[data-test-id=\"phone\"] input")).sendKeys("");
         driver.findElement(By.className("button")).click();
         String actualText = driver.findElement(By.className("input_invalid")).findElement(By.className("input__sub")).getText();
-        String expectedText = "Имя и Фамилия указаные неверно. Допустимы только русские буквы, пробелы и дефисы.";
+        String expectedText = "Им и Фамилия указаные неверно. Допустимы только русские буквы, пробелы и дефисы.";
         assertEquals(expectedText.trim(), actualText.trim());
     }
 
@@ -149,7 +149,7 @@ class CallbackTest {
         driver.findElement(By.cssSelector("[data-test-id=\"phone\"] input")).sendKeys("56448");
         driver.findElement(By.className("button")).click();
         String actualText = driver.findElement(By.className("input_invalid")).findElement(By.className("input__sub")).getText();
-        String expectedText = "Телефон указан неверно. Должно быть 11 цифр, например, +79012345678.";
+        String expectedText = "Телефо указан неверно. Должно быть 11 цифр, например, +79012345678.";
         assertEquals(expectedText.trim(), actualText.trim());
     }
 
