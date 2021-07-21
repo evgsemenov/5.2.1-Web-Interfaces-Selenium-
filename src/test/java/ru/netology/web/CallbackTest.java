@@ -38,7 +38,7 @@ class CallbackTest {
 
     @Test
     void shouldPositiveTest() {
-        driver.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("Григорий Иванов-Янковский");
+        driver.findElement(By.cssSelector("[data-test-id=\"name\"] input")).sendKeys("Григорий Иванов-Янковский");
         driver.findElement(By.cssSelector("[data-test-id=\"phone\"] input")).sendKeys("+79990001122");
         driver.findElement(By.className("checkbox__box")).click();
         driver.findElement(By.className("button")).click();
@@ -50,10 +50,10 @@ class CallbackTest {
     @Test
     void shouldBlockIfEnglishLettersInNameTest() {
         driver.findElement(By.cssSelector("[data-test-id=\"name\"] input")).sendKeys("Vasya");
-        driver.findElement(By.cssSelector("[data-test-id=\"phone\"] input")).sendKeys("+7987999111");
+        driver.findElement(By.cssSelector("[data-test-id=\"phone\"] input")).sendKeys("+79990001122");
         driver.findElement(By.className("checkbox__box")).click();
         driver.findElement(By.className("button")).click();
-        String actualText = driver.findElement(By.cssSelector("[data-test-id='name'].input_invalid .input__sub")).getText();
+        String actualText = driver.findElement(By.cssSelector("[data-test-id=\"name\"].input_invalid .input__sub")).getText();
         String expectedText = "Имя и Фамилия указаные неверно. Допустимы только русские буквы, пробелы и дефисы.";
         assertEquals(expectedText.trim(), actualText.trim());
     }
@@ -61,10 +61,10 @@ class CallbackTest {
     @Test
     void shouldBlockIfSymbolsInNameTest() {
         driver.findElement(By.cssSelector("[data-test-id=\"name\"] input")).sendKeys("Василий!#$ @ндреевич*");
-        driver.findElement(By.cssSelector("[data-test-id=\"phone\"] input")).sendKeys("+7987999111");
+        driver.findElement(By.cssSelector("[data-test-id=\"phone\"] input")).sendKeys("+79990001122");
         driver.findElement(By.className("checkbox__box")).click();
         driver.findElement(By.className("button")).click();
-        String actualText = driver.findElement(By.cssSelector("[data-test-id='name'].input_invalid .input__sub")).getText();
+        String actualText = driver.findElement(By.cssSelector("[data-test-id=\"name\"].input_invalid .input__sub")).getText();
         String expectedText = "Имя и Фамилия указаные неверно. Допустимы только русские буквы, пробелы и дефисы.";
         assertEquals(expectedText.trim(), actualText.trim());
     }
@@ -72,17 +72,17 @@ class CallbackTest {
     @Test
     void shouldBlockIfEmptyFieldNameTest() {
         driver.findElement(By.cssSelector("[data-test-id=\"name\"] input")).sendKeys("");
-        driver.findElement(By.cssSelector("[data-test-id=\"phone\"] input")).sendKeys("+7987999111");
+        driver.findElement(By.cssSelector("[data-test-id=\"phone\"] input")).sendKeys("+79990001122");
         driver.findElement(By.className("checkbox__box")).click();
         driver.findElement(By.className("button")).click();
-        String actualText = driver.findElement(By.cssSelector("[data-test-id='name'].input_invalid .input__sub")).getText();
+        String actualText = driver.findElement(By.cssSelector("[data-test-id=\"name\"].input_invalid .input__sub")).getText();
         String expectedText = "Поле обязательно для заполнения";
         assertEquals(expectedText.trim(), actualText.trim());
     }
 
     @Test
     void shouldBlockIfNoPlusSymbolInTelephoneTest() {
-        driver.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("Григорий Иванов-Янковский");
+        driver.findElement(By.cssSelector("[data-test-id=\"name\"] input")).sendKeys("Григорий Иванов-Янковский");
         driver.findElement(By.cssSelector("[data-test-id=\"phone\"] input")).sendKeys("79990001122");
         driver.findElement(By.className("checkbox__box")).click();
         driver.findElement(By.className("button")).click();
@@ -93,7 +93,7 @@ class CallbackTest {
 
     @Test
     void shouldBlockIf10NumbersInTelephoneTest() {
-        driver.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("Григорий Иванов-Янковский");
+        driver.findElement(By.cssSelector("[data-test-id=\"name\"] input")).sendKeys("Григорий Иванов-Янковский");
         driver.findElement(By.cssSelector("[data-test-id=\"phone\"] input")).sendKeys("+7999000112");
         driver.findElement(By.className("checkbox__box")).click();
         driver.findElement(By.className("button")).click();
@@ -104,7 +104,7 @@ class CallbackTest {
 
     @Test
     void shouldBlockIf12NumbersInTelephoneTest() {
-        driver.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("Григорий Иванов-Янковский");
+        driver.findElement(By.cssSelector("[data-test-id=\"name\"] input")).sendKeys("Григорий Иванов-Янковский");
         driver.findElement(By.cssSelector("[data-test-id=\"phone\"] input")).sendKeys("+799900011223");
         driver.findElement(By.className("checkbox__box")).click();
         driver.findElement(By.className("button")).click();
@@ -126,31 +126,32 @@ class CallbackTest {
 
     @Test
     void shouldBlockFirstUncorrectFieldV1Test() {
-        driver.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("Vasya");
+        driver.findElement(By.cssSelector("[data-test-id=\"name\"] input")).sendKeys("Vasya");
         driver.findElement(By.cssSelector("[data-test-id=\"phone\"] input")).sendKeys("");
         driver.findElement(By.className("button")).click();
-        String actualText = driver.findElement(By.className("input_invalid")).findElement(By.className("input__sub")).getText();
+        String actualText = driver.findElement(By.cssSelector("[data-test-id=name].input_invalid .input__sub")).getText();
         String expectedText = "Имя и Фамилия указаные неверно. Допустимы только русские буквы, пробелы и дефисы.";
         assertEquals(expectedText.trim(), actualText.trim());
     }
 
     @Test
     void shouldBlockFirstUncorrectFieldV2Test() {
-        driver.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("Вася");
+        driver.findElement(By.cssSelector("[data-test-id=\"name\"] input")).sendKeys("Григорий Иванов-Янковский");
         driver.findElement(By.cssSelector("[data-test-id=\"phone\"] input")).sendKeys("56448");
         driver.findElement(By.className("button")).click();
-        String actualText = driver.findElement(By.className("input_invalid")).findElement(By.className("input__sub")).getText();
+        String actualText = driver.findElement(By.cssSelector("[data-test-id=\"phone\"].input_invalid .input__sub")).getText();
         String expectedText = "Телефон указан неверно. Должно быть 11 цифр, например, +79012345678.";
         assertEquals(expectedText.trim(), actualText.trim());
     }
 
     @Test
     void shouldBlockFirstUncorrectFieldV3Test() {
-        driver.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("Вася");
-        driver.findElement(By.cssSelector("[data-test-id=\"phone\"] input")).sendKeys("56448");
+        driver.findElement(By.cssSelector("[data-test-id=\"name\"] input")).sendKeys("Григорий Иванов-Янковский");
+        driver.findElement(By.cssSelector("[data-test-id=\"phone\"] input")).sendKeys("+79990001122");
         driver.findElement(By.className("button")).click();
-
-        // TODO: Сравнить цвет элемента agreement, если он не был нажат
+        String actualText = driver.findElement(By.cssSelector("[data-test-id=\"agreement\"].input_invalid .checkbox__text")).getText();
+        String expectedText = "Я соглашаюсь с условиями обработки и использования моих персональных данных и разрешаю сделать запрос в бюро кредитных историй";
+        assertEquals(expectedText.trim(), actualText.trim());
 
     }
 }
