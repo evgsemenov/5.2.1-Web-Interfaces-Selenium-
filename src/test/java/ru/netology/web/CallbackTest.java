@@ -27,6 +27,7 @@ class CallbackTest {
         options.addArguments("--no-sandbox");
         options.addArguments("--headless");
         driver = new ChromeDriver(options);
+        driver.get("http://localhost:9999");
     }
 
     @AfterEach
@@ -37,7 +38,6 @@ class CallbackTest {
 
     @Test
     void shouldPositiveTest() {
-        driver.get("http://localhost:9999");
         driver.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("Григорий Иванов-Янковский");
         driver.findElement(By.cssSelector("[data-test-id=\"phone\"] input")).sendKeys("+79990001122");
         driver.findElement(By.className("checkbox__box")).click();
@@ -49,7 +49,6 @@ class CallbackTest {
 
     @Test
     void shouldBlockIfEnglishLettersInNameTest() {
-        driver.get("http://localhost:9999");
         driver.findElement(By.cssSelector("[data-test-id=\"name\"] input")).sendKeys("Vasya");
         driver.findElement(By.cssSelector("[data-test-id=\"phone\"] input")).sendKeys("+7987999111");
         driver.findElement(By.className("checkbox__box")).click();
@@ -61,7 +60,6 @@ class CallbackTest {
 
     @Test
     void shouldBlockIfSymbolsInNameTest() {
-        driver.get("http://localhost:9999");
         driver.findElement(By.cssSelector("[data-test-id=\"name\"] input")).sendKeys("Василий!#$ @ндреевич*");
         driver.findElement(By.cssSelector("[data-test-id=\"phone\"] input")).sendKeys("+7987999111");
         driver.findElement(By.className("checkbox__box")).click();
@@ -73,7 +71,6 @@ class CallbackTest {
 
     @Test
     void shouldBlockIfEmptyFieldNameTest() {
-        driver.get("http://localhost:9999");
         driver.findElement(By.cssSelector("[data-test-id=\"name\"] input")).sendKeys("");
         driver.findElement(By.cssSelector("[data-test-id=\"phone\"] input")).sendKeys("+7987999111");
         driver.findElement(By.className("checkbox__box")).click();
@@ -85,7 +82,6 @@ class CallbackTest {
 
     @Test
     void shouldBlockIfNoPlusSymbolInTelephoneTest() {
-        driver.get("http://localhost:9999");
         driver.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("Григорий Иванов-Янковский");
         driver.findElement(By.cssSelector("[data-test-id=\"phone\"] input")).sendKeys("79990001122");
         driver.findElement(By.className("checkbox__box")).click();
@@ -97,7 +93,6 @@ class CallbackTest {
 
     @Test
     void shouldBlockIf10NumbersInTelephoneTest() {
-        driver.get("http://localhost:9999");
         driver.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("Григорий Иванов-Янковский");
         driver.findElement(By.cssSelector("[data-test-id=\"phone\"] input")).sendKeys("+7999000112");
         driver.findElement(By.className("checkbox__box")).click();
@@ -109,7 +104,6 @@ class CallbackTest {
 
     @Test
     void shouldBlockIf12NumbersInTelephoneTest() {
-        driver.get("http://localhost:9999");
         driver.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("Григорий Иванов-Янковский");
         driver.findElement(By.cssSelector("[data-test-id=\"phone\"] input")).sendKeys("+799900011223");
         driver.findElement(By.className("checkbox__box")).click();
@@ -121,7 +115,6 @@ class CallbackTest {
 
     @Test
     void shouldBlockIfEmptyFieldTelephoneTest() {
-        driver.get("http://localhost:9999");
         driver.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("Григорий Иванов-Янковский");
         driver.findElement(By.cssSelector("[data-test-id=\"phone\"] input")).sendKeys("");
         driver.findElement(By.className("checkbox__box")).click();
@@ -133,7 +126,6 @@ class CallbackTest {
 
     @Test
     void shouldBlockFirstUncorrectFieldV1Test() {
-        driver.get("http://localhost:9999");
         driver.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("Vasya");
         driver.findElement(By.cssSelector("[data-test-id=\"phone\"] input")).sendKeys("");
         driver.findElement(By.className("button")).click();
@@ -144,7 +136,6 @@ class CallbackTest {
 
     @Test
     void shouldBlockFirstUncorrectFieldV2Test() {
-        driver.get("http://localhost:9999");
         driver.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("Вася");
         driver.findElement(By.cssSelector("[data-test-id=\"phone\"] input")).sendKeys("56448");
         driver.findElement(By.className("button")).click();
@@ -155,7 +146,6 @@ class CallbackTest {
 
     @Test
     void shouldBlockFirstUncorrectFieldV3Test() {
-        driver.get("http://localhost:9999");
         driver.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("Вася");
         driver.findElement(By.cssSelector("[data-test-id=\"phone\"] input")).sendKeys("56448");
         driver.findElement(By.className("button")).click();
