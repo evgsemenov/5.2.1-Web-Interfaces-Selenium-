@@ -53,7 +53,7 @@ class CallbackTest {
         driver.findElement(By.cssSelector("[data-test-id=\"phone\"] input")).sendKeys("+7987999111");
         driver.findElement(By.className("checkbox__box")).click();
         driver.findElement(By.className("button")).click();
-        String actualText = driver.findElement(By.className("input_invalid")).findElement(By.className("input__sub")).getText();
+        String actualText = driver.findElement(By.cssSelector("[data-test-id='name'].input_invalid .input__sub")).getText();
         String expectedText = "Имя и Фамилия указаные неверно. Допустимы только русские буквы, пробелы и дефисы.";
         assertEquals(expectedText.trim(), actualText.trim());
     }
@@ -64,7 +64,7 @@ class CallbackTest {
         driver.findElement(By.cssSelector("[data-test-id=\"phone\"] input")).sendKeys("+7987999111");
         driver.findElement(By.className("checkbox__box")).click();
         driver.findElement(By.className("button")).click();
-        String actualText = driver.findElement(By.className("input_invalid")).findElement(By.className("input__sub")).getText();
+        String actualText = driver.findElement(By.cssSelector("[data-test-id='name'].input_invalid .input__sub")).getText();
         String expectedText = "Имя и Фамилия указаные неверно. Допустимы только русские буквы, пробелы и дефисы.";
         assertEquals(expectedText.trim(), actualText.trim());
     }
@@ -75,7 +75,7 @@ class CallbackTest {
         driver.findElement(By.cssSelector("[data-test-id=\"phone\"] input")).sendKeys("+7987999111");
         driver.findElement(By.className("checkbox__box")).click();
         driver.findElement(By.className("button")).click();
-        String actualText = driver.findElement(By.className("input_invalid")).findElement(By.className("input__sub")).getText();
+        String actualText = driver.findElement(By.cssSelector("[data-test-id='name'].input_invalid .input__sub")).getText();
         String expectedText = "Поле обязательно для заполнения";
         assertEquals(expectedText.trim(), actualText.trim());
     }
@@ -86,7 +86,7 @@ class CallbackTest {
         driver.findElement(By.cssSelector("[data-test-id=\"phone\"] input")).sendKeys("79990001122");
         driver.findElement(By.className("checkbox__box")).click();
         driver.findElement(By.className("button")).click();
-        String actualText = driver.findElement(By.className("input_invalid")).findElement(By.className("input__sub")).getText();
+        String actualText = driver.findElement(By.cssSelector("[data-test-id=\"phone\"].input_invalid .input__sub")).getText();
         String expectedText = "Телефон указан неверно. Должно быть 11 цифр, например, +79012345678.";
         assertEquals(expectedText.trim(), actualText.trim());
     }
@@ -97,7 +97,7 @@ class CallbackTest {
         driver.findElement(By.cssSelector("[data-test-id=\"phone\"] input")).sendKeys("+7999000112");
         driver.findElement(By.className("checkbox__box")).click();
         driver.findElement(By.className("button")).click();
-        String actualText = driver.findElement(By.className("input_invalid")).findElement(By.className("input__sub")).getText();
+        String actualText = driver.findElement(By.cssSelector("[data-test-id=\"phone\"].input_invalid .input__sub")).getText();
         String expectedText = "Телефон указан неверно. Должно быть 11 цифр, например, +79012345678.";
         assertEquals(expectedText.trim(), actualText.trim());
     }
@@ -108,7 +108,7 @@ class CallbackTest {
         driver.findElement(By.cssSelector("[data-test-id=\"phone\"] input")).sendKeys("+799900011223");
         driver.findElement(By.className("checkbox__box")).click();
         driver.findElement(By.className("button")).click();
-        String actualText = driver.findElement(By.className("input_invalid")).findElement(By.className("input__sub")).getText();
+        String actualText = driver.findElement(By.cssSelector("[data-test-id=\"phone\"].input_invalid .input__sub")).getText();
         String expectedText = "Телефон указан неверно. Должно быть 11 цифр, например, +79012345678.";
         assertEquals(expectedText.trim(), actualText.trim());
     }
@@ -119,7 +119,7 @@ class CallbackTest {
         driver.findElement(By.cssSelector("[data-test-id=\"phone\"] input")).sendKeys("");
         driver.findElement(By.className("checkbox__box")).click();
         driver.findElement(By.className("button")).click();
-        String actualText = driver.findElement(By.className("input_invalid")).findElement(By.className("input__sub")).getText();
+        String actualText = driver.findElement(By.cssSelector("[data-test-id=\"phone\"].input_invalid .input__sub")).getText();
         String expectedText = "Поле обязательно для заполнения";
         assertEquals(expectedText.trim(), actualText.trim());
     }
